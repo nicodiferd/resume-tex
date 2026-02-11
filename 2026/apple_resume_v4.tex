@@ -1,0 +1,136 @@
+%-------------------------
+% Nicolo DiFerdinando Resume
+% Tailored for Apple IS&T Early Career
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+  \textbf{\Huge \scshape Nicolo DiFerdinando} \\ \vspace{3pt}
+  \href{mailto:nicodiferd@gmail.com}{nicodiferd@gmail.com} $|$
+  \small 949-274-0390 $|$
+  \href{https://www.nicolod.org}{nicolod.org} $|$
+  \href{https://www.linkedin.com/in/nicolo-diferdinando/}{linkedin.com/in/nicolo-diferdinando} $|$
+  \href{https://github.com/nicodiferd}{github.com/nicodiferd}
+\end{center}
+
+%-----------ABOUT ME-----------------
+\section{About Me}
+\small{Industrial engineering student with experience in full-stack development, cybersecurity automation, and business intelligence. Focused on building internal tools that streamline workflows, designing data pipelines, and solving systems-level problems. CompTIA Security+ and Splunk Core certified.}
+
+%-----------EDUCATION-----------------
+\section{Education}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{California Polytechnic State University, San Luis Obispo} & San Luis Obispo, CA \\
+      \textit{\small Bachelor of Science in Industrial Engineering} & \textit{\small Sept 2021 -- June 2026} \\
+    \end{tabular*}\vspace{-2pt}
+    {\small \textbf{Coursework:} Data Science, Data Analytics, Data Management \& System Design, Operations Research, Machine Learning, Statistics}
+\end{itemize}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\begin{itemize}[leftmargin=0.15in, label=\textbullet]
+
+  % PeopleConnect
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{Business Intelligence Intern} -- \textit{PeopleConnect} & \textit{\small Remote, Oct 2025 -- Present} \\
+    \end{tabular*}\vspace{-5pt}
+    \begin{itemize}[leftmargin=0.2in, label=$\circ$]
+      \item \small{\textbf{Dashboard Development:} Build and maintain interactive dashboards using Sigma Computing, Tableau, and Snowflake to support decision-making across Growth Operations and Finance teams.}
+      \item \small{\textbf{Data Pipeline Engineering:} Develop and monitor data pipelines using dbt semantic layers, ensuring data quality and consistency; troubleshoot nightly ETL jobs across the analytics stack.}
+      \item \small{\textbf{Technologies:} Snowflake, dbt, Sigma Computing, Tableau, SQL, Python}
+    \end{itemize}\vspace{-5pt}
+
+  % SOC Analyst
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{Assistant Student SOC Analyst} -- \textit{Cal Poly ITS} & \textit{\small San Luis Obispo, 2024 -- Present} \\
+    \end{tabular*}\vspace{-5pt}
+    \begin{itemize}[leftmargin=0.2in, label=$\circ$]
+      \item \small{\textbf{Security Automation:} Developed a Python Slack application automating SOC workflows including email confirmation, user suppression, and blocking. Integrated Splunk SOAR playbooks with Slack Bolt APIs for real-time incident response via interactive modals.}
+      \item \small{\textbf{Incident Handling:} Analyze and respond to suspicious logins, phishing emails, and anomalous network traffic using Splunk Enterprise to identify and mitigate threats.}
+      \item \small{\textbf{Technologies:} Splunk Enterprise, Splunk SOAR, Python, Slack Bolt API, Linux}
+    \end{itemize}\vspace{-5pt}
+
+  % loanDepot
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{Cyber Security Intern} -- \textit{loanDepot} & \textit{\small Irvine, CA, Summer 2022} \\
+    \end{tabular*}\vspace{-5pt}
+    \begin{itemize}[leftmargin=0.2in, label=$\circ$]
+      \item \small{\textbf{Threat Intelligence:} Supported threat prioritization based on actor-based and behavior/tactic-based intelligence. Assisted SOC and CIRT teams in incident investigations requiring analysis and correlation.}
+      \item \small{\textbf{Security Compliance:} Performed compliance audits against institutionally accepted security controls and frameworks.}
+    \end{itemize}\vspace{-5pt}
+
+\end{itemize}
+
+%-----------PROJECTS-----------------
+\section{Projects}
+\begin{itemize}[leftmargin=0.15in, label=\textbullet]
+  \item \small{\textbf{Flora -- Senior Capstone (Bloomfilter.ai):} Leading year-long research project improving human-computer interface design for AI agent integration in project management tools, focused on increasing user adoption in enterprise software.}
+  \item \small{\textbf{Bandit LLC -- Event Rideshare Startup:} Co-founded and built full-stack iOS app using Swift/SwiftUI with TypeScript/Node.js backend, MongoDB, and Firebase Auth. Architected real-time WebSocket ride tracking. Closed Sept 2025.}
+  \item \small{\textbf{HomeLab Infrastructure:} Self-hosted environment on Proxmox with VMs (ClickHouse data warehouse, automation bots, photo storage) and Docker containers (n8n workflows, Pi-hole DNS, Tailscale VPN) with ZFS storage and Grafana monitoring.}
+  \item \small{\textbf{IP Blocklist Automation:} Built Splunk SOAR automation playbook streamlining threat intelligence blocklist management, reducing manual intervention in security operations.}
+\end{itemize}
+
+%-----------LEADERSHIP-----------------
+\section{Leadership}
+\begin{itemize}[leftmargin=0.15in, label=\textbullet]
+  \item \small{\textbf{Cal Poly Club Baseball} -- Co-President (June 2025 -- Present), Player (Sept 2023 -- Present)}
+  \item \small{\textbf{Kappa Sigma Fraternity} -- President (Dec 2022 -- Mar 2023), Risk Manager (2021 -- 2024)}
+\end{itemize}
+
+%--------SKILLS------------
+\section{Skills}
+{\small
+\textbf{Languages:} Python, SQL, TypeScript, JavaScript, Swift/SwiftUI, Java, HTML/CSS \\
+\textbf{Technologies:} Node.js, React, Next.js, Express, MongoDB, Firebase, Docker, Proxmox, Git, Linux, Splunk, Splunk SOAR, Snowflake, dbt, Tableau, Sigma Computing, GCP, Cloudflare
+}
+
+%-------------------------------------------
+\end{document}

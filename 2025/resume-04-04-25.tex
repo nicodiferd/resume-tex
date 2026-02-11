@@ -1,0 +1,168 @@
+%-------------------------
+% Nicolo DiFerdinando Resume
+% Author : Nicolo DiFerdinando
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeCampusInvolvement}[3]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1}, #2 & #3 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+%----------HEADING-----------------
+\begin{center}
+  \textbf{\Huge \ \scshape Nicolo DiFerdinando} \\ \vspace{3pt}
+   \href{mailto:ndiferdi@calpoly.edu}{ndiferdi@calpoly.edu} $|$ \small 949-274-0390 $|$ \href{https://www.nicolod.org}{nicolod.org} $|$ \href{https://www.linkedin.com/in/nicolo-diferdinando/}{linkedin.com/in/nicolo-diferdinando/} $|$ \href{https://www.https://github.com/nicodiferd}{https://github.com/nicodiferd}
+
+\end{center}
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {California Polytechnic State University, San Luis Obispo}{San Luis Obispo, CA}
+      {Bachelor of Science in Industrial Engineering}{Sept. 2021 -- June. 2026}\\[3mm]
+      \textbf{Relevant Coursework:} Data Science, Data Analytics, Data Management and System Design, Operations Research, Design and Manufacturing, Statistics for Engineering, Machine Learning\\
+      \textbf{Engineering Test Design and Analysis:} Curated optimization strategies for workflow and deployment\\
+      \vspace{2pt} % Add vertical space here
+      \textbf{Certifications:} Splunk Core Certified User
+      \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Cal Poly San Luis Obispo}{San Luis Obispo, CA}
+      {Assistant Student SOC Analyst}{2024-Current}
+      \resumeItemListStart
+        \resumeItem{Cybersecurity Response}
+          {Analyze and respond to suspicious logins, phishing emails, and network traffic using Splunk Enterprise to mitigate threats.}
+        \resumeItem{Python-based Slack Automation}
+          {Created a Python-based Slack application to automate tasks such as email confirmation, suppression, and blocking procedures.}
+        \resumeItem{Splunk Soar Integration}
+          {Integrated Splunk Soar Playgrounds, SSH commands to block and suppress users, and Slack Bolt APIs to get button and modal interactivity.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {loanDepot}{Irvine, California}
+      {Cyber Security Intern}{2022}
+      \resumeItemListStart
+        \resumeItem{Cyber Threat Intelligence}
+          {Aided in the Cyber Intelligence team's threat prioritization based on incoming threat intelligence (actor-based and behavior/tactic-based).}
+        \resumeItem{Incident Investigations}
+          {Assisted members of Cyber Operations teams (SOC and CIRT) in incident investigations, requiring intelligence assistance.}
+        \resumeItem{Security Compliance Audits}
+          {Performed compliance audits against institutionally accepted security controls.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Kappa Sigma - Cal Poly San Luis Obispo}{San Luis Obispo, CA}
+      {President - Risk Manager}{2021 -- 2024}
+      \resumeItemListStart
+        \resumeItem{Leadership and Management}
+          {Worked in coordinating an executive committee to head and direct community service, fundraising, and philanthropy events.}
+        \resumeItem{Event Planning and Coordination}
+          {Lead and facilitate all chapter executive meetings, and chapter meetings, attend national events, and coordination with other fraternities on campus.}
+        \resumeItem{Financial Oversight}
+          {Collaborated with the treasurer to manage the chapter's budget.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{IP Blocklist Automation}{Created an automation playbook that streamlines the process of managing a block list from a 3rd party service using Splunk and Splunk SOAR.}
+    \resumeSubItem{HomeLab}{Configured a home server using Plex, Bitwarden, WireGuard, and Grafana with Docker.}
+    \resumeSubItem{Card Trading Business Database Design with MySQL}{Collaborated on designing and implementing a database system for 'Select \& Collect Cards,' a chain of trading card game stores, focusing on inventory, sales, and customer data management to streamline operations and enhance traceability.}
+    \resumeSubItem{Portfolio Website}{Built a personal website using JavaScript, HTML and CSS.  }
+  \resumeSubHeadingListEnd
+
+%-----------LEADERSHIP-----------------
+\section{Campus Involvement and Volunteer Work}
+  \resumeSubHeadingListStart
+    \resumeCampusInvolvement{Kappa Sigma}{President}{\textit{\small Dec 2022} -- \textit{\small Mar 2023} (President), \textit{\small Sept 2021} -- \textit{\small Present} (Risk Manager)}    
+    \resumeCampusInvolvement{Cal Poly Club Baseball Team}{Player}{\textit{\small Sept 2023} -- \textit{\small Current}}
+    \resumeCampusInvolvement{Bandit-LLC}{Part Owner}
+    {\textit{\small Oct 2024} -- \textit{\small Current}}
+  \resumeSubHeadingListE 
+%--------PROGRAMMING SKILLS------------
+\section{Skills}
+
+\textbf{Languages:} Python, SQL, Java, TypeScript, Splunk Soar Environment\\
+\textbf{Skills:} Next.js, Node.js, Docker, Supabase, Six Sigma, LEAN Manufacturing, Splunk, Excel, Linux, git, Slack, SOLIDWORKS, Minitab, Jira  \\
+
+
+%-------------------------------------------
+\end{document}
