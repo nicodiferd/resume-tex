@@ -22,13 +22,13 @@
 schema_version: 1
 
 name: Nicolo DiFerdinando
-headline: AI-Driven Solutions Analyst
+headline: AI/ML and data engineer
 summary: >-
-  Industrial engineering graduate with experience in software engineering,
-  data engineering, and cybersecurity automation. Focused on building internal
-  tools that streamline workflows, designing data pipelines and database
-  systems, automating reporting and repetitive tasks, and building agents with
-  Langchain and Python.
+  AI/ML and data engineer who ships production systems end to end and
+  measures them with numbers. Builds LLM-powered automation, dbt and Snowflake
+  data pipelines, a semantic layer served over MCP, and calibrated ML models.
+  Cal Poly Industrial Engineering graduate, with security automation and
+  self-hosted infrastructure as supporting depth.
 
 contact:
   email: nicodiferd@gmail.com
@@ -36,7 +36,7 @@ contact:
 links:
   - kind: website
     label: nicolod.org
-    url: https://www.nicolod.org
+    url: https://nicolod.org
   - kind: linkedin
     label: linkedin.com/in/nicolo-diferdinando
     url: https://www.linkedin.com/in/nicolo-diferdinando/
@@ -107,9 +107,8 @@ experience:
       - label: Semantic Layer Service
         text: >-
           Built a service embedding company metrics, dimensions, and entities
-          over the dbt semantic layer, exposing governed definitions to the
-          interface of choice through MCP connectors (Claude, ChatGPT), a Slack
-          bot, and more.
+          over the dbt semantic layer, exposing governed definitions through MCP
+          connectors (Claude, ChatGPT), a Slack bot, and more.
       - label: Reporting Migration
         text: >-
           Assisted in migrating enterprise reporting from Tableau to Sigma
@@ -160,26 +159,36 @@ experience:
           architecture.
 
 projects:
+  - name: Zedi
+    tagline: Personal Finance SaaS
+    text: >-
+      Shipped a full-stack finance platform with a Rust/Axum API,
+      Next.js/TypeScript frontend, PostgreSQL with row-level multi-tenancy,
+      Claude Vision receipt OCR, and Stripe billing.
+    url: https://zedi.dev
+    url_label: zedi.dev
+  # Source: bblmlp/README.md and bblmlp/docs/handoff-model.md (2026-08-23).
+  # Framing rule (nico-hub rules/public-claims.md): machine learning first,
+  # the market unnamed. The headline finding is the tie with a tuned Elo.
+  - name: BBLMLP
+    tagline: Baseball ML Prediction
+    text: >-
+      Statcast ingest into DuckDB, point-in-time features with leakage tests,
+      walk-forward backtests and Brier/reliability calibration; a 139-feature
+      LightGBM ties a tuned Elo baseline.
   - name: Flora
     tagline: Senior Capstone (Bloomfilter.ai)
     text: >-
       Year-long senior group project working with Bloomfilter improving HCI
       design for AI agent integration in project management tools, focused on
       increasing user adoption in enterprise software.
-  - name: Zedi
-    tagline: Personal Finance SaaS
-    text: >-
-      Built and deployed full-stack finance platform using Rust/Axum REST API,
-      Next.js/TypeScript frontend, PostgreSQL with row-level multi-tenancy,
-      Claude Vision receipt OCR, and Stripe billing, shipped on Railway.
-    url: https://zedi.sneeks.ai
-    url_label: zedi.sneeks.ai
+  # Source: showcase/homelab.html (snapshot as of 2026-10-10). Single node;
+  # list only guests that are running; no hostnames, IPs or schedules.
   - name: HomeLab Infrastructure
     text: >-
-      Self-hosted Proxmox cluster running 12+ services across pfSense
-      networking, Docker, and ZFS mirrored storage, including ClickHouse,
-      Grafana, n8n, Pi-hole, Tailscale, WireGuard, Bitwarden, Plex, and
-      Cloudflare Tunnels, with fleet-wide SSH automation.
+      Single-node Proxmox lab running Tailscale, n8n automation, Telegraf into
+      ClickHouse, Proxmox Backup Server, llama.cpp OCR on a GPU container, and
+      a self-hosted Zedi; configs and runbooks in git.
   # Variant-only items: kept from the February 2026 resumes in 2026/, left
   # out of the default build.
   - name: Bandit LLC
@@ -218,4 +227,4 @@ skills:
   - label: Languages
     items: [Python, SQL, Rust, TypeScript, JavaScript, Swift/SwiftUI, Bash, YAML, HTML/CSS]
   - label: Technologies
-    items: [Node.js, React, Next.js, Streamlit, PyTorch, LangChain, PostgreSQL, MongoDB (NoSQL), Firebase, Supabase, Docker, Proxmox, Terraform, Git, CI/CD, Linux, Splunk, Splunk SOAR, Snowflake, dbt, Tableau, Sigma Computing, ClickHouse, Grafana, GCP, Cloudflare, Railway, Stripe, MCP]
+    items: [Node.js, React, Next.js, Streamlit, PyTorch, LightGBM, DuckDB, LangChain, PostgreSQL, MongoDB (NoSQL), Firebase, Supabase, Docker, Proxmox, Terraform, Git, CI/CD, Linux, Splunk, Splunk SOAR, Snowflake, dbt, Tableau, Sigma Computing, ClickHouse, Grafana, GCP, Cloudflare, Railway, Stripe, MCP]
