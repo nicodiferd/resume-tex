@@ -1,31 +1,84 @@
 name: Build Resume PDF
 
+# data/profile.yaml -> scripts/render.py -> build/resume.tex -> latexmk -> build/resume.pdf
+# Pull requests build and check only. Pushes to main (and manual runs on main)
+# also replace resume.pdf and profile.json on the release tagged "latest".
+
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: build-resume-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: texlive/texlive:latest
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
+
+      - uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install renderer dependencies
+        run: pip install -r requirements.txt
+
+      # RESUME_PHONE is deliberately not set here: the public PDF has no phone line.
+      - name: Render profile.yaml
+        run: python scripts/render.py
 
       - name: Compile LaTeX
-        run: pdflatex -interaction=nonstopmode -halt-on-error current_resume.tex
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # 4.1.0
         with:
-          tag_name: latest
-          name: Latest Resume
-          files: current_resume.pdf
-          make_latest: true
+          working_directory: build
+          root_file: resume.tex
+
+      - name: Install poppler
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - name: Check one page, no phone, no banned claims
+        run: |
+          pdfinfo build/resume.pdf | grep -E '^Pages:\s+1$'
+          python scripts/check_pdf.py build/resume.pdf --tex build/resume.tex
+
+      - uses: actions/upload-artifact@v6.0.0
+        with:
+          name: resume
+          path: |
+            build/resume.pdf
+            build/profile.json
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v7.0.0
+        with:
+          name: resume
+          path: dist
+
+      - name: Update release "latest"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          notes="Built from ${GITHUB_SHA} by run ${GITHUB_RUN_ID} on $(date -u +%Y-%m-%d). Assets: resume.pdf (public, no phone line) and profile.json (data/profile.yaml as JSON)."
+          if gh release view latest >/dev/null 2>&1; then
+            gh release upload latest dist/resume.pdf dist/profile.json --clobber
+            gh release edit latest --notes "$notes"
+          else
+            gh release create latest dist/resume.pdf dist/profile.json \
+              --title "Latest Resume" --notes "$notes" --target "$GITHUB_SHA" --latest
+          fi
