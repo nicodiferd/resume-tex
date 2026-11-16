@@ -1,0 +1,237 @@
+# Canonical career data for Nicolo DiFerdinando.
+#
+# This file is the single source of truth for roles, dates, education,
+# projects, skills and public links. scripts/render.py turns it into
+# build/resume.tex (the one-page resume) and build/profile.json (the public
+# feed the portfolio sites read).
+#
+# Rules:
+# - Public file: never add a phone number here. Private builds read the
+#   RESUME_PHONE environment variable instead. render.py refuses to run if
+#   this file holds a "phone" key or anything shaped like a phone number.
+# - Plain text, not LaTeX: write "&", "%", "C++" as is; the renderer escapes
+#   them. Use an en dash (U+2013) for ranges. Never an em dash (U+2014).
+# - variants: optional list of variant names on any list item that is a
+#   mapping (education, experience, bullet, project, leadership, skill row).
+#   An item without variants appears in every build. An item with variants
+#   appears only when render.py runs with --variant set to one of them. The
+#   public PDF is the "default" variant, so tag an item [default, security]
+#   to keep it on the public PDF but drop it from a "swe" build. The page is
+#   already full: a variant that adds an item must drop another one.
+
+schema_version: 1
+
+name: Nicolo DiFerdinando
+headline: Security, data and AI engineer
+# Positioning (owner 2026-10-30): security first, then data and ML, then AI.
+summary: >-
+  Security, data and AI engineer. Started in security (SOC analysis, SOC 2
+  automation), moved into data and ML (dbt, Snowflake, BI), and now builds AI
+  assistants on Claude and MCP. Cal Poly Industrial Engineering graduate.
+
+contact:
+  email: nicodiferd@gmail.com
+
+links:
+  - kind: website
+    label: nicolod.org
+    url: https://nicolod.org
+  - kind: linkedin
+    label: linkedin.com/in/nicolo-diferdinando
+    url: https://www.linkedin.com/in/nicolo-diferdinando/
+  - kind: github
+    label: github.com/nicodiferd
+    url: https://github.com/nicodiferd
+
+education:
+  - degree: Bachelor of Science in Industrial Engineering
+    school: California Polytechnic State University, San Luis Obispo
+    start: Sept 2021
+    end: June 2026
+    coursework:
+      - Data Science
+      - Computer Science
+      - Data Analytics
+      - Enterprise Analytics
+      - Database Management & System Design
+      - Operations Research
+      - Machine Learning
+      - Statistics & Design of Experiments
+      - Simulation
+      - Usability/HCI
+
+experience:
+  - title: AI-Driven Solutions Analyst
+    type: Full-time
+    company: PeopleConnect
+    start: Aug 2026
+    end: Present
+    bullets:
+      # Owner's own wording, 2026-11-15.
+      - label: AI Assistants
+        text: >-
+          Build AI assistants that let anyone at the company ask a business
+          question in plain English and get a trusted answer from live data.
+          Built on LLMs (Claude), the Model Context Protocol (MCP), Snowflake
+          and dbt, running on Google Cloud. Usage grew ~70% in one quarter, and
+          long conversations now use ~85% fewer tokens.
+      - label: Data Quality & Fraud
+        text: >-
+          Partner with Marketing, Finance and Customer Care to find and fix
+          problems hiding in the data. Detected automated card-testing bot
+          attacks and recommended the fix that blocked every bot card attempt
+          the following day. Also caught a data feed silently losing ~97% of
+          its records and ad attribution undercounting a major channel by ~99%.
+      - label: Cost & Automation
+        text: >-
+          Cut cost and manual work across the business: built a Snowflake cost
+          optimization plan with the first changes already live, set up AI
+          spend tracking by person and model, automated a monthly executive
+          report, and co-teach company-wide AI training.
+
+  - title: Business Intelligence Intern
+    type: Part-time
+    company: PeopleConnect
+    start: Oct 2025
+    end: June 2026
+    bullets:
+      - label: Dashboard Development
+        text: >-
+          Built interactive dashboards using Sigma Computing, Tableau and
+          Snowflake serving 50+ stakeholders across Growth Operations,
+          Executives and Finance through cross-functional collaboration.
+      - label: Data Pipeline Engineering
+        text: >-
+          Developed and monitored data pipelines using dbt Core/Fusion semantic
+          layers with CI/CD workflows; managed ETL pipelines for incremental
+          logic with code review processes across the data engineering team.
+      - label: Semantic Layer Service
+        text: >-
+          Built a service embedding company metrics, dimensions and entities
+          over the dbt semantic layer, exposing governed definitions through MCP
+          connectors (Claude, ChatGPT), a Slack bot and more.
+      - label: Reporting Migration
+        variants: [bi]
+        text: >-
+          Assisted in migrating enterprise reporting from Tableau to Sigma
+          Computing, streamlining dashboard delivery and reducing licensing
+          overhead.
+
+  - title: Cybersecurity & IT Intern
+    type: Full-time
+    company: PeopleConnect
+    start: June 2025
+    end: Sept 2025
+    bullets:
+      - label: SOC 2 Compliance
+        text: >-
+          Automated SOC 2 evidence collection with Bash scripts (kept in
+          GitHub) that pulled evidence from each system; the audit finished in
+          4 weeks vs. a projected 10.
+      - label: Enterprise Security
+        text: >-
+          Deployed a vulnerability scanning and testing solution across 200+
+          endpoints; wrote reusable automation scripts that improved visibility
+          into on-prem devices and reduced risk surface.
+
+  - title: Assistant Student SOC Analyst
+    type: Part-time
+    company: Cal Poly ITS
+    start: April 2024
+    end: June 2025
+    bullets:
+      - label: Security Automation & Incident Response
+        text: >-
+          Built a Python Slack app wiring Splunk SOAR playbooks into incident
+          response through Slack Bolt, and triaged 50+ security incidents a week
+          in Splunk Enterprise with IT teams.
+
+  - title: Cybersecurity Intern
+    type: Full-time
+    company: loanDepot
+    start: Summer 2022
+    bullets:
+      - text: >-
+          Designed and deployed phishing simulation campaigns to educate
+          employees on social engineering threats. Gained hands-on exposure to
+          incident response procedures, compliance auditing and security
+          architecture.
+
+projects:
+  - name: Zedi
+    tagline: Personal Finance Web App
+    # Source: zedi.dev (2026-11-15).
+    text: >-
+      Imports bank statements or syncs read-only, reads receipts with Claude
+      and tracks shared costs; built on Rust/Axum, Next.js and PostgreSQL
+      row-level security.
+    url: https://zedi.dev
+    url_label: zedi.dev
+  # Source: bblmlp/README.md and bblmlp/docs/handoff-model.md (2026-08-23).
+  # Framing rule (nico-hub rules/public-claims.md): machine learning first,
+  # the market unnamed. The headline finding is the tie with a tuned Elo.
+  - name: BBLMLP
+    tagline: Baseball ML Prediction
+    text: >-
+      Statcast ingest into DuckDB, point-in-time features with leakage tests,
+      walk-forward backtests, Brier and reliability checks; a stacked LightGBM
+      ties a tuned Elo baseline on Brier.
+  - name: Flora
+    tagline: Senior Capstone (Bloomfilter.ai)
+    text: >-
+      Year-long group project with Bloomfilter on HCI design for AI agents
+      in project management tools, aimed at enterprise adoption. Won Best in
+      Lab.
+  # Source: showcase/homelab.html (snapshot as of 2026-10-26). Single node;
+  # list only guests that are running; no hostnames, IPs or schedules.
+  - name: HomeLab Infrastructure
+    text: >-
+      Single-node Proxmox lab running Tailscale, n8n automation, Telegraf into
+      ClickHouse, Proxmox Backup Server, llama.cpp OCR on a GPU container, and
+      a self-hosted Zedi; configs and runbooks in git.
+  # Variant-only items: kept from the February 2026 resumes in 2026/, left
+  # out of the default build.
+  - name: Bandit LLC
+    tagline: Event Rideshare Startup
+    variants: [swe]
+    text: >-
+      Co-founded and built full-stack iOS app using Swift/SwiftUI,
+      TypeScript/Node.js REST API backend, NoSQL database (MongoDB), and
+      Firebase Auth with real-time WebSocket ride tracking.
+  - name: IP Blocklist Automation
+    variants: [security]
+    text: >-
+      Built Splunk SOAR automation playbook streamlining threat intelligence
+      blocklist management, reducing manual intervention in security
+      operations.
+
+leadership:
+  - org: Cal Poly Club Baseball
+    roles:
+      - title: Co-President
+        start: June 2025
+        end: June 2026
+      - title: Player
+        start: "2023"
+        end: June 2026
+  - org: Kappa Sigma Fraternity
+    roles:
+      # Owner, 2026-11-07: these replace every older record.
+      - title: President
+        start: Dec 2022
+        end: Dec 2023
+      - title: Risk Manager
+        start: Jan 2022
+        end: Dec 2022
+      - title: Industrial Design Team
+        start: Jan 2022
+        end: Dec 2022
+      - title: Pledge Class President
+        start: Sept 2021
+        end: Dec 2021
+
+skills:
+  - label: Languages
+    items: [Python, SQL, Rust, TypeScript, JavaScript, Swift/SwiftUI, YAML, HTML/CSS]
+  - label: Technologies
+    items: [CrowdStrike (SIEM), Splunk, Splunk SOAR, Snowflake, dbt, DuckDB, Tableau, Sigma, ClickHouse, Grafana, scikit-learn, LightGBM, XGBoost, PyTorch, Claude, MCP, Langfuse, llama.cpp, MLX, Node.js, React, Next.js, PostgreSQL, MongoDB, Firebase, Stripe, Docker, Proxmox, Terraform, Linux, Git, CI/CD, GCP, Cloudflare]

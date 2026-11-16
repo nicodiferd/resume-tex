@@ -1,0 +1,18 @@
+# Render and compile output (build/private holds phone-bearing builds)
+build/
+
+# LaTeX byproducts from compiling the archived .tex files by hand
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.xdv
+
+# Python
+__pycache__/
+.venv/
+
+# Local agent memory
+.remember/
