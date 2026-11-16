@@ -20,7 +20,7 @@
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 
-\hypersetup{pdftitle={((( p.name ))) Resume}, pdfauthor={((( p.name )))}}
+\hypersetup{hidelinks, pdftitle={((( p.name ))) Resume}, pdfauthor={((( p.name )))}}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -102,7 +102,7 @@
   % ((( x.company ))): ((( x.title )))
   \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{((( x.title )))((* if x.type *)) ((( x.type|parens )))((* endif *))} -- \textit{((( x.company )))} & \textit{\small ((( x|daterange )))} \\
+      \textbf{((( x.title )))((* if x.type *)) ((( x.type|parens )))((* endif *))} | \textit{((( x.company )))} & \textit{\small ((( x|daterange )))} \\
     \end{tabular*}\vspace{-1pt}
     \begin{itemize}[leftmargin=0.2in, label=$\circ$, itemsep=-2pt, topsep=1pt]
 ((* for b in x.bullets *))
@@ -119,7 +119,7 @@
 \section{Projects}
 \begin{itemize}[leftmargin=0.15in, label=\textbullet, itemsep=0pt, parsep=0pt]
 ((* for pr in p.projects *))
-  \item \small{\textbf{((( pr.name )))((* if pr.tagline *)) -- ((( pr.tagline )))((* endif *)):} ((( pr.text )))((* if pr.url *)) (\href{((( pr.url|url )))}{((( pr.url_label or pr.url )))})((* endif *))}
+  \item \small{\textbf{((( pr.name )))((* if pr.tagline *)) | ((( pr.tagline )))((* endif *)):} ((( pr.text )))((* if pr.url *)) (\href{((( pr.url|url )))}{((( pr.url_label or pr.url )))})((* endif *))}
 ((* endfor *))
 \end{itemize}
 ((* endif *))
@@ -129,7 +129,7 @@
 \section{Leadership}
 \begin{itemize}[leftmargin=0.15in, label=\textbullet, itemsep=0pt, parsep=0pt]
 ((* for l in p.leadership *))
-  \item \small{\textbf{((( l.org )))} -- ((( l.roles|roles )))}
+  \item \small{\textbf{((( l.org )))} | ((( l.roles|roles )))}
 ((* endfor *))
 \end{itemize}
 ((* endif *))
